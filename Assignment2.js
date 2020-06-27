@@ -55,6 +55,5 @@ const clearFields =()=>{
 const errorStyling =(id)=>{
     id.style.border="2px solid";
     id.style.borderColor="red";
-    id.value="Err!"
     id.style.color="red";
 }
