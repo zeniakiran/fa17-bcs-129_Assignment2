@@ -1,13 +1,19 @@
 const  isChecked=()=>{
-    var noOfCheckbox= document.getElementsByClassName('form-check-input').length;
-    var clickedId= event.srcElement.id;
-    var i=1;
-    while(i<=noOfCheckbox){
-        document.getElementById("check"+i).checked=false;
-        i++;
-        
+    noOfCheckbox = document.getElementsByClassName("form-check-input").length;
+    chkInRow=Math.floor(noOfCheckbox/2);
+    id= event.srcElement.id;
+    elem= document.getElementById(id);
+    num= parseInt(id);
+    if(num >=chkInRow+1)
+        sum=num-chkInRow;
+    else
+        sum= num+chkInRow;
+
+    str=sum.toString();
+    document.getElementById(str).disabled=true;
+    if(elem.checked===false){
+        document.getElementById(str).disabled=false;
     }
-    document.getElementById(clickedId).checked=true;
 }
 
 const inputValidation=()=>{
