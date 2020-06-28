@@ -3,16 +3,20 @@ const  isChecked=()=>{
     chkInRow=Math.floor(noOfCheckbox/2);
     id= event.srcElement.id;
     elem= document.getElementById(id);
-    num= parseInt(id);
-    if(num >=chkInRow+1)
-        sum=num-chkInRow;
+    sibling= document.getElementById(id).nextSibling.nextSibling.id;
+    var siblingId= sibling.split(" ");
+    elemId= parseInt(id);
+    if(elemId >=chkInRow+1)
+        elemToDisable = elemId-chkInRow;
     else
-        sum= num+chkInRow;
+        elemToDisable = elemId+chkInRow;
 
-    str=sum.toString();
+    str= elemToDisable.toString();
     document.getElementById(str).disabled=true;
+    document.getElementById(siblingId[0]+" "+ elemToDisable).disabled=true;
     if(elem.checked===false){
         document.getElementById(str).disabled=false;
+        document.getElementById(siblingId[0]+" "+ elemToDisable).disabled=false;
     }
 }
 
